@@ -59,11 +59,6 @@ mvnOpts="${mvnOpts}${MAVEN_SETTINGS_OPT:+ $MAVEN_SETTINGS_OPT}"
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_OPTS:-"-DskipTests=true"}"
 mvnOpts="${mvnOpts} ${MAVEN_CUSTOM_GOALS:-"clean install"}"
 
-APP_DIR=~
-echo "-----> Copying $CACHE_DIR/.maven to $APP_DIR: user> $(whoami)"
-cp -r $CACHE_DIR/.maven $APP_DIR
-
-
 status "Executing: mvn ${mvnOpts}"
 $CACHE_DIR/.maven/bin/mvn ${mvnOpts} | indent
 
